@@ -1,0 +1,21 @@
+﻿@model NodeTree
+@{
+    ViewData["Title"] = "Капитошка";
+}
+
+<div class="text-center">
+    @foreach (var node in Model.GetAllHTML()){
+        <p>
+            <a 
+                style="text-decoration: none; text-col" 
+                asp-action="Add" 
+                asp-controller="Home" 
+                asp-route-id=@node.id>  
+                @for (int i = 0; i < node.tab; i++) {
+                    <label style="margin-left: 40px"> </label>
+                } 
+                @node.str 
+            </a>
+        </p>
+    }
+</div>
